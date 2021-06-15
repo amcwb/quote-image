@@ -39,7 +39,8 @@ app.get('/generate', (req, res) => {
 
 app.get('*', (req, res) => {
     // Let's return express data
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+    const name = req.path === "/" ? "index.html" : req.path;
+    res.sendFile(path.join(__dirname, 'client', 'build', name));
 });
 
 app.listen(port, () => {

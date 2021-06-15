@@ -26,12 +26,13 @@ function App() {
   
   React.useEffect(() => {
     // Run request
-    let link = new URL("http://localhost:3000/generate");
-    
     // Build URL safely!
-    link.searchParams.append("quote", quote);
-    link.searchParams.append("color", hslToHex(color.hue, color.saturation*100, color.brightness*100))
-    setImageLink(link.toString());
+    let urlparams = new URLSearchParams([
+      ["quote", quote],
+      ["color", hslToHex(color.hue, color.saturation*100, color.brightness*100)]
+    ]);
+    
+    setImageLink("/generate?" + urlparams.toString());
   }, [quote, color]);
 
   return (

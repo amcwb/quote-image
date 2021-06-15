@@ -5,8 +5,13 @@
   "author": "Avery <19372006+starsflower@users.noreply.github.com>",
   "license": "MIT",
   "scripts": {
-    "start": "cd backend && node index.js",
-    "heroku-postbuild": "cd backend && npm install && cd ../client && npm install && npm run build"
+    "start": "node index.js",
+    "heroku-postbuild": "npm install && cd client && npm install && npm run build"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.12",
+    "express": "^4.17.1",
+    "jimp": "^0.16.1"
   },
   "engines": {
     "node": "14.x"
