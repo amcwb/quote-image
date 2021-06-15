@@ -1,18 +1,7 @@
 import React from 'react';
-import { AppProvider, TextField, ColorPicker, Layout, FooterHelp, Link } from '@shopify/polaris';
+import { AppProvider, TextField, ColorPicker, Layout, FooterHelp, Link, hsbToRgb, rgbToHex } from '@shopify/polaris';
 import './App.css'
 
-function hslToHex(h: number, s: number, l: number): string {
-  // https://stackoverflow.com/a/44134328
-  l /= 100;
-  const a = s * Math.min(l, 1 - l) / 100;
-  const f = (n: number) => {
-    const k = (n + h / 30) % 12;
-    const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
-    return Math.round(255 * color).toString(16).padStart(2, '0');   // convert to Hex and prefix "0" if needed
-  };
-  return `${f(0)}${f(8)}${f(4)}`;
-}
 
 function App() {
   let imageRef = React.useRef(null);
@@ -29,7 +18,7 @@ function App() {
     // Build URL safely!
     let urlparams = new URLSearchParams([
       ["quote", quote],
-      ["color", hslToHex(color.hue, color.saturation*100, color.brightness*100)]
+      ["color", rgbToHex(hsbToRgb(color)).slice(1)]
     ]);
     
     setImageLink("/generate?" + urlparams.toString());
