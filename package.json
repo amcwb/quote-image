@@ -1,0 +1,11 @@
+{
+  "name": "quote-image",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Avery <19372006+starsflower@users.noreply.github.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "cd backend && node index.js",
+    "heroku-postbuild": "cd client && yarn && yarn run build"
+  }
+}

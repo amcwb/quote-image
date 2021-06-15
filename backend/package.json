@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@types/express": "^4.17.12",
+    "express": "^4.17.1",
+    "jimp": "^0.16.1"
+  },
+  "name": "Backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ."
+  }
+}
