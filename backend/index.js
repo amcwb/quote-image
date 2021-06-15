@@ -1,8 +1,8 @@
 const express = require('express')
+const path = require('path');
 const Jimp = require('jimp');
 const app = express()
 const port = process.env.PORT || 8000;
-
 app.get('/generate', (req, res) => {
     const quote = req.query.quote;
     const color = req.query.color;
